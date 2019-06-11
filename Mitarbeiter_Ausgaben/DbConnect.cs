@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+using System.Data;
+using System.Globalization;
+
+
+namespace Mitarbeiter_Ausgaben
+{
+    class DbConnect
+    {
+        public void dbcon(String gericht, decimal preis, int mID)
+        {
+            
+            try {
+                
+
+                //neue DB-Verbindung
+                String conString = "Server=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
+
+                MySqlConnection con = new MySqlConnection(conString);
+                MySqlCommand command = con.CreateCommand();
+
+                //neuer Befehl
+                command.CommandText = "insert into ausgaben(gericht, preis, mitarbeiter_id) values(" + "'" + gericht + "'" + ", " + preis.ToString(CultureInfo.InvariantCulture) + ", " + mID + ");";
+
+                con.Open();
+
+                //Befehl ausführen
+                command.ExecuteNonQuery();
+                MessageBox.Show("Done.");
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+        }        
+    }
+}
