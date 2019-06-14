@@ -32,7 +32,7 @@ namespace Mitarbeiter_Ausgaben
 
                 //Befehl ausführen
                 command.ExecuteNonQuery();
-                MessageBox.Show("Done.");
+                MessageBox.Show("Daten wurden in die Datenbank geschrieben.");
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }        

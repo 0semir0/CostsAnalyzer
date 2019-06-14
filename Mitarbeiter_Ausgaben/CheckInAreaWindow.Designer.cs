@@ -1,6 +1,6 @@
 ﻿namespace Mitarbeiter_Ausgaben
 {
-    partial class Form1
+    partial class CheckInAreaWindow
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInAreaWindow));
             this.save_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +50,8 @@
             this.passwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.mitarbeiterTableAdapter2 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
+            this.mitarbeiterTableAdapter3 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -57,17 +59,22 @@
             // 
             // save_btn
             // 
+            this.save_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save_btn.FlatAppearance.BorderSize = 0;
+            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.save_btn.Location = new System.Drawing.Point(262, 47);
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(112, 23);
             this.save_btn.TabIndex = 0;
             this.save_btn.Text = "Speichern";
-            this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.UseVisualStyleBackColor = false;
             this.save_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(29, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
@@ -77,6 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(29, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
@@ -86,6 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(29, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
@@ -94,6 +103,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(119, 47);
             this.textBox1.Name = "textBox1";
@@ -102,6 +113,9 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox2.Location = new System.Drawing.Point(119, 72);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
@@ -109,6 +123,9 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox3.Location = new System.Drawing.Point(119, 96);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
@@ -125,6 +142,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.MultiSelect = false;
@@ -139,6 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label4.Location = new System.Drawing.Point(12, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
@@ -160,16 +179,22 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(144, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Bestätigen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(97, 50);
             this.textBox5.Name = "textBox5";
@@ -179,6 +204,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(11, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
@@ -187,6 +213,8 @@
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Location = new System.Drawing.Point(97, 92);
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '•';
@@ -196,6 +224,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(11, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
@@ -204,6 +233,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bearbeitenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -216,12 +246,16 @@
             // 
             this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.passwortÄndernToolStripMenuItem});
+            this.bearbeitenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
             // 
             // passwortÄndernToolStripMenuItem
             // 
+            this.passwortÄndernToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.passwortÄndernToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.passwortÄndernToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.passwortÄndernToolStripMenuItem.Name = "passwortÄndernToolStripMenuItem";
             this.passwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.passwortÄndernToolStripMenuItem.Text = "Passwort ändern";
@@ -229,28 +263,46 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(381, 165);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Mehr...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button3.Location = new System.Drawing.Point(262, 76);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 12;
             this.button3.Text = "Bisherige Ausgaben";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // mitarbeiterTableAdapter2
+            // 
+            this.mitarbeiterTableAdapter2.ClearBeforeFill = true;
+            // 
+            // mitarbeiterTableAdapter3
+            // 
+            this.mitarbeiterTableAdapter3.ClearBeforeFill = true;
             // 
             // Form1
             // 
+            this.AcceptButton = this.save_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(505, 200);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
@@ -267,7 +319,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ausgaben";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -304,6 +358,8 @@
         private System.Windows.Forms.ToolStripMenuItem passwortÄndernToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter2;
+        private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter3;
     }
 }
 

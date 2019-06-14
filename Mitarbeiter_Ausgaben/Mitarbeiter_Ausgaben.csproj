@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\semir.canbolat\Desktop\ausgabenv1.3\</PublishUrl>
+    <PublishUrl>C:\Users\semir.canbolat\Desktop\ausgabenv1.4\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,23 +83,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnect.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="CheckInAreaWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CheckInAreaWindow.Designer.cs">
+      <DependentUpon>CheckInAreaWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="PWChangeWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="PWChangeWindow.Designer.cs">
+      <DependentUpon>PWChangeWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="GraphWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="GraphWindow.Designer.cs">
+      <DependentUpon>GraphWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllPurchasesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllPurchasesWindow.Designer.cs">
+      <DependentUpon>AllPurchasesWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="mittagessen_ausgabenDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,14 +114,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CheckInAreaWindow.resx">
+      <DependentUpon>CheckInAreaWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="PWChangeWindow.resx">
+      <DependentUpon>PWChangeWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="GraphWindow.resx">
+      <DependentUpon>GraphWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllPurchasesWindow.resx">
+      <DependentUpon>AllPurchasesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

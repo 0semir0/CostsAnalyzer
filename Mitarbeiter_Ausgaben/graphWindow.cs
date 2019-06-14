@@ -11,16 +11,16 @@ using MySql.Data.MySqlClient;
 
 namespace Mitarbeiter_Ausgaben
 {
-    public partial class Form3 : Form
+    public partial class GraphWindow : Form
     {
-        public Form3()
+        public GraphWindow()
         {
 
             InitializeComponent();
 
             chart1.Titles.Add("Statistik");
 
-            Form1 f1 = new Form1();
+            CheckInAreaWindow f1 = new CheckInAreaWindow();
             
             for (int i = 1; i <= 31; i++) //fill spline
             {
@@ -36,11 +36,12 @@ namespace Mitarbeiter_Ausgaben
 
             for (int i = 0; i <= datasetCount; i++)
             {
+                break;
                 storage[i] = f1.getCMD("select substring(datum, 6, 6) from ausgaben where mitarbeiter_id = " + f1.getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
             }
 
             String toDisplay = string.Join(Environment.NewLine, storage); //allDates in einen String zusammenfassen um in einer MsgBox ausgeben zu können
-            MessageBox.Show(toDisplay);
+            //MessageBox.Show(toDisplay);
 
             var chart = chart1.ChartAreas[0];
             

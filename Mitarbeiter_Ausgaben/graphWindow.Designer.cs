@@ -1,6 +1,6 @@
 ﻿namespace Mitarbeiter_Ausgaben
 {
-    partial class Form3
+    partial class GraphWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -44,11 +44,16 @@
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chart1.BorderSkin.BackImageTransparentColor = System.Drawing.Color.White;
+            this.chart1.BorderSkin.BackSecondaryColor = System.Drawing.Color.Gray;
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(-1, -1);
+            this.chart1.Location = new System.Drawing.Point(1, 0);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;

@@ -13,11 +13,11 @@ using System.Runtime.InteropServices;
 
 namespace Mitarbeiter_Ausgaben
 {
-    public partial class Form1 : Form
+    public partial class CheckInAreaWindow : Form
     {
         public static String box5Content;
         
-        public Form1()
+        public CheckInAreaWindow()
         {
             InitializeComponent();
         }
@@ -29,13 +29,22 @@ namespace Mitarbeiter_Ausgaben
         
         private void button1_Click(object sender, EventArgs e)
         {
-            int mID = Int32.Parse(textBox1.Text);
-            String gericht = textBox2.Text;
-            
-            decimal preis = Convert.ToDecimal(textBox3.Text.Replace(".", ","));
+            try
+            {
+                int mID = Int32.Parse(textBox1.Text);
+                String gericht = textBox2.Text;
 
-            DbConnect dc = new DbConnect();
-            dc.dbcon(gericht, preis, mID);
+                decimal preis = Convert.ToDecimal(textBox3.Text.Replace(".", ","));
+
+                DbConnect dc = new DbConnect();
+                dc.dbcon(gericht, preis, mID);
+
+                textBox2.Clear();
+                textBox2.Focus();
+
+                textBox3.Clear();
+            }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public void dbMaList() //Tabelle befüllen
@@ -58,9 +67,9 @@ namespace Mitarbeiter_Ausgaben
             }catch(Exception e) { MessageBox.Show(e.Message); }
         }
 
+        //BENUTZERKONTEN AUSWAHLTABELLE
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //Wenn auf Zelle in Tabelle geklickt wird, dann...
         {
-            //Zellinhalt in String speichern
             String cellContent= dataGridView1.SelectedCells[0].Value.ToString();
             label4.Text = cellContent;
             cellContent = "'" + cellContent + "'";
@@ -70,6 +79,8 @@ namespace Mitarbeiter_Ausgaben
                 MySqlDataReader dr = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
                 fillTbox(dr, textBox1); //textbox1 mit output des selects füllen
                 dataGridView1.Visible = false; //nach klick auf eine Zelle, soll Tabelle verschwinden
+                textBox4.Focus(); //Cursor in die TextBox platzieren
+
             }catch(Exception ex) { MessageBox.Show(ex.Message); }
 
             try
@@ -79,24 +90,30 @@ namespace Mitarbeiter_Ausgaben
             }catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
         
-        private void button1_Click_1(object sender, EventArgs e) //Wenn "bestätigen" button geklickt, dann
+        //ANMELDUNG
+        public void button1_Click_1(object sender, EventArgs e)
         {
+            PWChangeWindow hasher = new PWChangeWindow(); //New Object
             box5Content = "'" + textBox5.Text + "'";
-            //box5Content = "'" + box5Content + "'";
             try
             {
-                String realPassword = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+                String realPasswordHash = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+                
                 String box4Input = textBox4.Text;
 
-                if(box4Input == realPassword) panel1.Visible = false;
+                string box4InputHash = hasher.GetHashString(box4Input); //Make Hash String out of plaintext pw
+
+                if(box4InputHash == realPasswordHash) panel1.Visible = false;
                 else MessageBox.Show("Passwort inkorrekt.");
+                textBox2.Focus(); //Cursor in die TextBox platzieren
                 
             }catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        //PASSWORT ÄNDERN FENSTER ÖFFNEN
         private void passwortÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 editPWwindow = new Form2();
+            PWChangeWindow editPWwindow = new PWChangeWindow();
             editPWwindow.ShowDialog();
         }
 
@@ -122,7 +139,6 @@ namespace Mitarbeiter_Ausgaben
         public String getmID()
         {
             String mID = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
-            
             return mID;
         }
 
@@ -132,27 +148,18 @@ namespace Mitarbeiter_Ausgaben
             return pw;
         }
 
+        //PASSWORT ÄNDERN FENSTER ÖFFNEN -> Form2
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 editPWindow = new Form3();
+            GraphWindow editPWindow = new GraphWindow();
             editPWindow.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        //ALLE AUSGABEN FENSTER ÖFFNEN -> Form4
+        private void button3_Click(object sender, EventArgs e) //ALLE AUSGABEN ANZEIGEN
         {
-            String dsCount = getCMD("select count(*) from ausgaben where mitarbeiter_id =" + getmID() + ";").ExecuteScalar().ToString();
-            int datasetCount = Int32.Parse(dsCount);
-
-            String[] allpurch = new String[datasetCount];
-            for (int i = 0; i < datasetCount; i++)
-            {
-                allpurch[i] = getCMD("select concat(datum, ' | ', gericht, ': ', preis, '€') from ausgaben where mitarbeiter_id =" + getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
-            }
-
-            String sum = getCMD("select sum(preis) from ausgaben where mitarbeiter_id=" + getmID() + ";").ExecuteScalar().ToString();
-            String toDisplay = string.Join(Environment.NewLine, allpurch); //allDates in einen String zusammenfassen um in einer MsgBox ausgeben zu können
-            
-            MessageBox.Show(dsCount + " Eintragungen:\n\n" + toDisplay + "\n\nSumme der Ausgaben: " + sum);
+            AllPurchasesWindow allDatasetsWindow = new AllPurchasesWindow();
+            allDatasetsWindow.ShowDialog();
         }
     }
 }
