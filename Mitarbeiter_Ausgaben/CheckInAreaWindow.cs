@@ -27,7 +27,7 @@ namespace Mitarbeiter_Ausgaben
             dbMaList();
         }
         
-        //AUSGABEN-FELD
+        //EINKÄUFE EINGABEFELD
         private void button1_Click(object sender, EventArgs e)
         {
             try
