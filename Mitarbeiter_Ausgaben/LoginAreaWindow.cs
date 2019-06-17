@@ -89,15 +89,17 @@ namespace Mitarbeiter_Ausgaben
             }
         }
         
-        public String getmID()
+        //GIBT MITARBEITER ID AUS DB ZURÜCK
+        public string getmID()
         {
-            String mID = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+            string mID = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
             return mID;
         }
 
-        public String getPw()
+        //GIBT PASSWORT AUS DB ZURÜCK, -> HASH
+        public string getPw()
         {
-            String pw = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+            string pw = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
             return pw;
         }
 
