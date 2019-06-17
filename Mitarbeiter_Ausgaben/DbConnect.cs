@@ -15,10 +15,7 @@ namespace Mitarbeiter_Ausgaben
     {
         public void dbcon(String gericht, decimal preis, int mID)
         {
-            
             try {
-                
-
                 //neue DB-Verbindung
                 String conString = "Server=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
 

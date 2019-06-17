@@ -13,18 +13,13 @@ using System.Runtime.InteropServices;
 
 namespace Mitarbeiter_Ausgaben
 {
-    public partial class CheckInAreaWindow : Form
+    public partial class LoginAreaWindow : Form
     {
         public static String box5Content;
         
-        public CheckInAreaWindow()
+        public LoginAreaWindow()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {            
-            dbMaList();
         }
         
         //EINKÄUFE EINGABEFELD
@@ -48,49 +43,6 @@ namespace Mitarbeiter_Ausgaben
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public void dbMaList() //Tabelle befüllen
-        {
-            try
-            {
-                //neue DB-Verbindung
-                String conString = "datasource=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
-                MySqlConnection con = new MySqlConnection(conString);
-                con.Open();
-
-                //MySQL Befehl
-                MySqlDataAdapter adapter = new MySqlDataAdapter("select concat(n_name,'.', v_name) as Benutzer from mitarbeiter;", con);
-
-                //Output des Befehls in die Tabelle schreiben
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "mitarbeiter");
-                dataGridView1.DataSource = ds.Tables["mitarbeiter"];
-
-            }catch(Exception e) { MessageBox.Show(e.Message); }
-        }
-
-        //BENUTZERKONTEN AUSWAHLTABELLE
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //Wenn auf Zelle in Tabelle geklickt wird, dann...
-        {
-            String cellContent= dataGridView1.SelectedCells[0].Value.ToString();
-            label4.Text = cellContent;
-            cellContent = "'" + cellContent + "'";
-
-            try
-            { 
-                MySqlDataReader dr = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
-                fillTbox(dr, textBox1); //textbox1 mit output des selects füllen
-                dataGridView1.Visible = false; //nach klick auf eine Zelle, soll Tabelle verschwinden
-                textBox4.Focus(); //Cursor in die TextBox platzieren
-
-            }catch(Exception ex) { MessageBox.Show(ex.Message); }
-
-            try
-            {
-                MySqlDataReader dr = getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
-                fillTbox(dr, textBox5);
-            }catch(Exception ex) { MessageBox.Show(ex.Message); }
-        }
-        
         //ANMELDUNG
         public void button1_Click_1(object sender, EventArgs e)
         {
@@ -129,7 +81,7 @@ namespace Mitarbeiter_Ausgaben
             return cmd;
         }
         
-        private void fillTbox(MySqlDataReader reader, TextBox box2fill) //FILL TEXTBOX FUNCTION
+        public void fillTbox(MySqlDataReader reader, TextBox box2fill) //FILL TEXTBOX FUNCTION
         {
             if (reader.Read())
             {

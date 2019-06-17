@@ -31,7 +31,7 @@ namespace Mitarbeiter_Ausgaben
             
             try
             {
-                CheckInAreaWindow f1 = new CheckInAreaWindow();
+                LoginAreaWindow f1 = new LoginAreaWindow();
 
                 if (pwNew != pwRepeat) MessageBox.Show("Eingaben falsch. \nKorrigieren!");
                 if (pwOldHash != f1.getPw()) MessageBox.Show("Eingaben falsch. \nKorrigieren!");
