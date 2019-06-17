@@ -48,7 +48,7 @@
             this.textBox1.Size = new System.Drawing.Size(629, 363);
             this.textBox1.TabIndex = 2;
             // 
-            // Form4
+            // AllPurchasesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -56,8 +56,8 @@
             this.ClientSize = new System.Drawing.Size(629, 363);
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "AllPurchasesWindow";
+            this.Text = "Alle Ausgaben";
             this.ResumeLayout(false);
             this.PerformLayout();
 

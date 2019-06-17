@@ -29,8 +29,8 @@ namespace Mitarbeiter_Ausgaben
             string[] purchases = new string[datasetCount];
             for(int i = 0; i < datasetCount; i++)
             {
-                purchases[i] = f1.getCMD("select concat(datum, ' | ', gericht, ': ', preis, '€') from ausgaben where mitarbeiter_id =" + f1.getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
-                purchases[i] += "\r\n";
+                purchases[i] = "---------------------------------------------------------------------------------\r\n";
+                purchases[i] += f1.getCMD("select concat(datum, ' | ', gericht, ': ', preis, '€') from ausgaben where mitarbeiter_id =" + f1.getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
             }
 
             string allDatasets = string.Join(Environment.NewLine, purchases);
