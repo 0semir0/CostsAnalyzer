@@ -14,15 +14,10 @@ namespace Mitarbeiter_Ausgaben
 {
     public partial class UserList : Form
     {
-        public UserList()
-        {
-            InitializeComponent();
-        }
+        public UserList() => InitializeComponent();
 
-        private void UserList_Load(object sender, EventArgs e)
-        {
-            dbMaList();
-        }
+        private void UserList_Load(object sender, EventArgs e) => dbMaList();
+
 
         public void dbMaList() //Tabelle befüllen
         {
@@ -40,24 +35,23 @@ namespace Mitarbeiter_Ausgaben
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "mitarbeiter");
                 dataGridView1.DataSource = ds.Tables["mitarbeiter"];
-
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoginAreaWindow checkIn = new LoginAreaWindow();
+            LoginAreaWindow login = new LoginAreaWindow();
 
             String cellContent = dataGridView1.SelectedCells[0].Value.ToString();
-            checkIn.label4.Text = cellContent;
+            login.label4.Text = cellContent;
             cellContent = "'" + cellContent + "'";
             
             try
             {
-                MySqlDataReader dr = checkIn.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
-                checkIn.fillTbox(dr, checkIn.textBox1); //textbox1 mit output des selects füllen
-                checkIn.textBox4.Focus(); //Cursor in die TextBox platzieren
+                MySqlDataReader dr = login.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
+                login.fillTbox(dr, login.textBox1); //textbox1 mit output des selects füllen
+                login.textBox4.Focus(); //Cursor in die TextBox platzieren
 
 
             }
@@ -65,15 +59,12 @@ namespace Mitarbeiter_Ausgaben
 
             try
             {
-                MySqlDataReader dr = checkIn.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
-                checkIn.fillTbox(dr, checkIn.textBox5);
+                MySqlDataReader dr = login.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
+                login.fillTbox(dr, login.textBox5);
 
-                checkIn.ShowDialog();
-
+                login.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
-        
     }
 }

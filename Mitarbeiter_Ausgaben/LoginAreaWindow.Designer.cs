@@ -85,9 +85,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(29, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Gericht";
+            this.label2.Text = "Artikel";
             // 
             // label3
             // 
@@ -95,9 +95,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(29, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Preis";
+            this.label3.Text = "Kosten";
             // 
             // textBox1
             // 
@@ -275,7 +275,7 @@
             // 
             this.mitarbeiterTableAdapter3.ClearBeforeFill = true;
             // 
-            // CheckInAreaWindow
+            // LoginAreaWindow
             // 
             this.AcceptButton = this.save_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,7 +298,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "CheckInAreaWindow";
+            this.Name = "LoginAreaWindow";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ausgaben";
