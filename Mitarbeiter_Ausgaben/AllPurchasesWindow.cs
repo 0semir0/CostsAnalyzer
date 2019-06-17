@@ -17,7 +17,7 @@ namespace Mitarbeiter_Ausgaben
             InitializeComponent();
             SetTextboxContent();
         }
-         //this one is a test
+
         private void SetTextboxContent()
         {
             LoginAreaWindow login = new LoginAreaWindow();
