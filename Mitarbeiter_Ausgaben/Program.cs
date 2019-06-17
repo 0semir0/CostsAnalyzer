@@ -13,9 +13,7 @@ namespace Mitarbeiter_Ausgaben
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserList());
-            
-            //Application.Run(new CheckInAreaWindow());
+            Application.Run(new UserList());            
         }
     }
 }

@@ -52,8 +52,6 @@ namespace Mitarbeiter_Ausgaben
                 MySqlDataReader dr = login.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
                 login.fillTbox(dr, login.textBox1); //textbox1 mit output des selects füllen
                 login.textBox4.Focus(); //Cursor in die TextBox platzieren
-
-
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -61,7 +59,6 @@ namespace Mitarbeiter_Ausgaben
             {
                 MySqlDataReader dr = login.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
                 login.fillTbox(dr, login.textBox5);
-
                 login.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

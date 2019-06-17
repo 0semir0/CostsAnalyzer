@@ -20,21 +20,21 @@ namespace Mitarbeiter_Ausgaben
         
         private void SetTextboxContent()
         {
-            LoginAreaWindow f1 = new LoginAreaWindow();
-            f1.getmID();
+            LoginAreaWindow login = new LoginAreaWindow();
+            login.getmID();
 
-            string dsCount = f1.getCMD("select count(*) from ausgaben where mitarbeiter_id =" + f1.getmID() + ";").ExecuteScalar().ToString(); //counts datasets of logged in user
+            string dsCount = login.getCMD("select count(*) from ausgaben where mitarbeiter_id =" + login.getmID() + ";").ExecuteScalar().ToString(); //counts datasets of logged in user
             int datasetCount = Int32.Parse(dsCount);
 
             string[] purchases = new string[datasetCount];
             for(int i = 0; i < datasetCount; i++)
             {
-                purchases[i] = "---------------------------------------------------------------------------------\r\n";
-                purchases[i] += f1.getCMD("select concat(datum, ' | ', gericht, ': ', preis, '€') from ausgaben where mitarbeiter_id =" + f1.getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
+                purchases[i] = "----------------------------------------------------------------\r\n";
+                purchases[i] += login.getCMD("select concat(datum, ' | ', gericht, ': ', preis, '€') from ausgaben where mitarbeiter_id =" + login .getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
             }
 
             string allDatasets = string.Join(Environment.NewLine, purchases);
-            String sum = f1.getCMD("select sum(preis) from ausgaben where mitarbeiter_id=" + f1.getmID() + ";").ExecuteScalar().ToString();
+            String sum = login.getCMD("select sum(preis) from ausgaben where mitarbeiter_id=" + login.getmID() + ";").ExecuteScalar().ToString();
 
             textBox1.Text += dsCount + " Eintragungen:\r\n\r\n" + allDatasets + "\r\n\r\nSumme der Ausgaben: " + sum;
         }
