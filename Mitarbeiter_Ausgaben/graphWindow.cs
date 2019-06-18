@@ -20,7 +20,7 @@ namespace Mitarbeiter_Ausgaben
 
             chart1.Titles.Add("Statistik");
 
-            LoginAreaWindow f1 = new LoginAreaWindow();
+            FinalWindow f1 = new FinalWindow();
             
             for (int i = 1; i <= 31; i++) //fill spline
             {

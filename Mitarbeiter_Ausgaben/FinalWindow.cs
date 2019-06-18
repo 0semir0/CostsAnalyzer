@@ -13,11 +13,11 @@ using System.Runtime.InteropServices;
 
 namespace Mitarbeiter_Ausgaben
 {
-    public partial class LoginAreaWindow : Form
+    public partial class FinalWindow : Form
     {
-        public static String box5Content;
+        public static string box5Content;
         
-        public LoginAreaWindow()
+        public FinalWindow()
         {
             InitializeComponent();
         }
@@ -37,32 +37,11 @@ namespace Mitarbeiter_Ausgaben
 
                 textBox2.Clear();
                 textBox2.Focus();
-
                 textBox3.Clear();
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
-
-        //ANMELDUNG
-        public void button1_Click_1(object sender, EventArgs e)
-        {
-            PWChangeWindow hasher = new PWChangeWindow(); //New Object
-            box5Content = "'" + textBox5.Text + "'";
-            try
-            {
-                String realPasswordHash = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
-                
-                String box4Input = textBox4.Text;
-
-                string box4InputHash = hasher.GetHashString(box4Input); //Make Hash String out of plaintext pw
-
-                if(box4InputHash == realPasswordHash) panel1.Visible = false;
-                else MessageBox.Show("Passwort inkorrekt.");
-                textBox2.Focus(); //Cursor in die TextBox platzieren
-                
-            }catch(Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
+        
         //PASSWORT ÄNDERN FENSTER ÖFFNEN
         private void passwortÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,11 +60,12 @@ namespace Mitarbeiter_Ausgaben
             return cmd;
         }
         
+        //FÜLLT TEXTBOX MIT OUTPUT EINES SELECTS
         public void fillTbox(MySqlDataReader reader, TextBox box2fill) //FILL TEXTBOX FUNCTION
         {
             if (reader.Read())
             {
-                box2fill.Text = reader.GetValue(0).ToString();
+                box2fill.Text = reader.GetValue(0).ToString(); //fills given textbox with select statement
             }
         }
         
@@ -94,6 +74,12 @@ namespace Mitarbeiter_Ausgaben
         {
             string mID = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
             return mID;
+        }
+
+        //USED ONCE -> LOGINWINDOW
+        public void GiveUsername(string uname)
+        {
+            box5Content = uname;
         }
 
         //GIBT PASSWORT AUS DB ZURÜCK, -> HASH

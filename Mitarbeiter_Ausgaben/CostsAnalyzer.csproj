@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,11 +83,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnect.cs" />
-    <Compile Include="LoginAreaWindow.cs">
+    <Compile Include="FinalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginAreaWindow.Designer.cs">
-      <DependentUpon>LoginAreaWindow.cs</DependentUpon>
+    <Compile Include="FinalWindow.Designer.cs">
+      <DependentUpon>FinalWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWindow.Designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="PWChangeWindow.cs">
       <SubType>Form</SubType>
@@ -120,8 +126,11 @@
     <Compile Include="UserList.Designer.cs">
       <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LoginAreaWindow.resx">
-      <DependentUpon>LoginAreaWindow.cs</DependentUpon>
+    <EmbeddedResource Include="FinalWindow.resx">
+      <DependentUpon>FinalWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PWChangeWindow.resx">
       <DependentUpon>PWChangeWindow.cs</DependentUpon>

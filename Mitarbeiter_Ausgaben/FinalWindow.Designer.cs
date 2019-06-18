@@ -1,6 +1,6 @@
 ﻿namespace Mitarbeiter_Ausgaben
 {
-    partial class LoginAreaWindow
+    partial class FinalWindow
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginAreaWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinalWindow));
             this.save_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,12 +38,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.mitarbeiterTableAdapter1 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +45,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.mitarbeiterTableAdapter2 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
             this.mitarbeiterTableAdapter3 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
-            this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +108,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox2.Location = new System.Drawing.Point(119, 72);
+            this.textBox2.MaxLength = 1000;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 5;
@@ -142,72 +136,6 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "label4";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(505, 201);
-            this.panel1.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(144, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Bestätigen";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(97, 50);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(122, 20);
-            this.textBox5.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(11, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Benutzer";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(97, 92);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '•';
-            this.textBox4.Size = new System.Drawing.Size(122, 20);
-            this.textBox4.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(11, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Kennwort";
             // 
             // menuStrip1
             // 
@@ -275,14 +203,13 @@
             // 
             this.mitarbeiterTableAdapter3.ClearBeforeFill = true;
             // 
-            // LoginAreaWindow
+            // FinalWindow
             // 
             this.AcceptButton = this.save_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(505, 200);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -298,12 +225,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "LoginAreaWindow";
+            this.Name = "FinalWindow";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ausgaben";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -318,16 +243,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter1;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwortÄndernToolStripMenuItem;

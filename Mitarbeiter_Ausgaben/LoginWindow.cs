@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Mitarbeiter_Ausgaben
+{
+    public partial class LoginWindow : Form
+    {
+        public string box1Content;
+
+        public LoginWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PWChangeWindow hasher = new PWChangeWindow(); //New Object
+            FinalWindow fw = new FinalWindow();
+            box1Content = "'" + textBox1.Text + "'";
+            try
+            {
+                string realPasswordHash = fw.getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box1Content).ExecuteScalar().ToString();
+
+                fw.GiveUsername("'" + textBox1.Text + "'");
+                string mitarbeiterID = fw.getmID();
+                
+                string box2Input = textBox2.Text;
+
+                string box2InputHash = hasher.GetHashString(box2Input); //Make Hash String out of plaintext pw
+
+                if (box2InputHash == realPasswordHash)
+                {
+                    fw.textBox1.Text = mitarbeiterID;
+                    fw.label4.Text = textBox1.Text; //Text unten links -> FinalWindow
+
+                    fw.ShowDialog();
+
+                    this.DialogResult = DialogResult.No; //close loginscreen after closing finalwindow
+
+                }
+                else MessageBox.Show("Passwort inkorrekt.");
+                fw.textBox2.Select(); //Cursor in die TextBox platzieren -> FinalWindow
+
+            } catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+    }
+}

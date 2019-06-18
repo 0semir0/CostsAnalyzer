@@ -41,24 +41,25 @@ namespace Mitarbeiter_Ausgaben
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoginAreaWindow login = new LoginAreaWindow();
+            FinalWindow fw = new FinalWindow();
+            LoginWindow login = new LoginWindow();
 
             String cellContent = dataGridView1.SelectedCells[0].Value.ToString();
-            login.label4.Text = cellContent;
+            
             cellContent = "'" + cellContent + "'";
             
             try
             {
-                MySqlDataReader dr = login.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
-                login.fillTbox(dr, login.textBox1); //textbox1 mit output des selects füllen
-                login.textBox4.Focus(); //Cursor in die TextBox platzieren
+                MySqlDataReader dr = fw.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
+                fw.fillTbox(dr, fw.textBox1); //textbox1 mit output des selects füllen
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             try
             {
-                MySqlDataReader dr = login.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
-                login.fillTbox(dr, login.textBox5);
+                MySqlDataReader dr = fw.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
+                fw.fillTbox(dr, login.textBox1);
+
                 login.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
