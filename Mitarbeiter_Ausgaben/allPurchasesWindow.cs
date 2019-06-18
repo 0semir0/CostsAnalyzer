@@ -20,7 +20,7 @@ namespace Mitarbeiter_Ausgaben
 
         private void SetTextboxContent()
         {
-            LoginAreaWindow login = new LoginAreaWindow();
+            FinalWindow login = new FinalWindow();
             login.getmID();
 
             string dsCount = login.getCMD("select count(*) from ausgaben where mitarbeiter_id =" + login.getmID() + ";").ExecuteScalar().ToString(); //counts datasets of logged in user
