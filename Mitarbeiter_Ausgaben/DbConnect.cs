@@ -22,8 +22,11 @@ namespace Mitarbeiter_Ausgaben
                 MySqlConnection con = new MySqlConnection(conString);
                 MySqlCommand command = con.CreateCommand();
 
+                gericht = "'" + gericht + "'"; //ready for sql query
                 //neuer Befehl
-                command.CommandText = "insert into ausgaben(gericht, preis, mitarbeiter_id) values(" + "'" + gericht + "'" + ", " + preis.ToString(CultureInfo.InvariantCulture) + ", " + mID + ");";
+                command.CommandText = $"insert into ausgaben(gericht, preis, mitarbeiter_id) values({gericht}, {preis.ToString(CultureInfo.InvariantCulture)}, {mID});";
+
+
 
                 con.Open();
 

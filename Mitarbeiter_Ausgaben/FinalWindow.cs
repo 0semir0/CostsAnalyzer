@@ -71,7 +71,7 @@ namespace Mitarbeiter_Ausgaben
         //GIBT MITARBEITER ID AUS DB ZURÜCK
         public string getmID()
         {
-            string mID = getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+            string mID = getCMD($"select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = {box5Content};").ExecuteScalar().ToString();
             return mID;
         }
 
@@ -84,7 +84,7 @@ namespace Mitarbeiter_Ausgaben
         //GIBT PASSWORT AUS DB ZURÜCK, -> HASH
         public string getPw()
         {
-            string pw = getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box5Content).ExecuteScalar().ToString();
+            string pw = getCMD($"select kennwort from mitarbeiter where concat(n_name, '.', v_name) = {box5Content};").ExecuteScalar().ToString();
             return pw;
         }
 

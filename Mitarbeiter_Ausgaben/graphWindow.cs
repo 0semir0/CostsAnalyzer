@@ -14,7 +14,6 @@ namespace Mitarbeiter_Ausgaben
 {
     public partial class GraphWindow : Form
     {
-
         private bool buttonClickOnceChecker = false;
         public GraphWindow()
         {
