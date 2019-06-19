@@ -56,7 +56,6 @@ namespace Mitarbeiter_Ausgaben
             con.Open();
 
             MySqlCommand cmd = new MySqlCommand(command, con);
-            
             return cmd;
         }
         

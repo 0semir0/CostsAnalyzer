@@ -32,7 +32,6 @@ namespace Mitarbeiter_Ausgaben
                 string mitarbeiterID = fw.getmID();
                 
                 string box2Input = textBox2.Text;
-
                 string box2InputHash = hasher.GetHashString(box2Input); //Make Hash String out of plaintext pw
 
                 if (box2InputHash == realPasswordHash)
@@ -42,7 +41,7 @@ namespace Mitarbeiter_Ausgaben
 
                     fw.ShowDialog();
 
-                    this.DialogResult = DialogResult.No; //close loginscreen after closing finalwindow
+                    DialogResult = DialogResult.No; //close loginscreen after closing finalwindow
 
                 }
                 else MessageBox.Show("Passwort inkorrekt.");
