@@ -7,57 +7,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
 
 namespace Mitarbeiter_Ausgaben
 {
     public partial class GraphWindow : Form
     {
+
+        private bool buttonClickOnceChecker = false;
         public GraphWindow()
         {
-
             InitializeComponent();
-
-            chart1.Titles.Add("Statistik");
-
-            FinalWindow f1 = new FinalWindow();
-            
-            for (int i = 1; i <= 31; i++) //fill spline
-            {
-                chart1.Series["Ausgaben"].Points.AddXY(i, 12);
-            }
-            
-            chart1.Series["Ausgaben"].BorderWidth = 4;
-
-            String dsCount = f1.getCMD("select count(*) from ausgaben where mitarbeiter_id =" + f1.getmID() + ";").ExecuteScalar().ToString();
-            int datasetCount = Int32.Parse(dsCount);
-
-            String[] storage = new String[datasetCount];
-
-            for (int i = 0; i <= datasetCount; i++)
-            {
-                break;
-                storage[i] = f1.getCMD("select substring(datum, 6, 6) from ausgaben where mitarbeiter_id = " + f1.getmID() + " limit 1 offset " + i + ";").ExecuteScalar().ToString();
-            }
-
-            String toDisplay = string.Join(Environment.NewLine, storage); //allDates in einen String zusammenfassen um in einer MsgBox ausgeben zu können
-            //MessageBox.Show(toDisplay);
-
-            var chart = chart1.ChartAreas[0];
-            
-            //chart axis config.
-            chart.AxisX.Interval = 1;
-            chart.AxisX.Minimum = 1;
-            chart.AxisX.Maximum = 31;
-
-            chart.AxisY.Interval = 0.5;
-            chart.AxisY.Minimum = 1;
-            chart.AxisY.Maximum = 15;
         }
 
-    private void Chart1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Click works!");
+            FinalWindow f1 = new FinalWindow();
+
+            var cmd = f1.getCMD($"select concat(month(datum), '.', year(datum)) as Datum, preis from ausgaben where mitarbeiter_id = {f1.getmID()};");
+            MySqlDataReader reader;
+
+            try
+            {
+                //chart config
+                var chart = chart1.ChartAreas[0];
+
+                chart.AxisY.Interval = 0.5;
+                chart.AxisY.Minimum = 0.25;
+                chart.AxisY.Maximum = 15;
+
+                chart.AxisX.Interval = 1;
+                chart.AxisX.Minimum = 1;
+
+                if(buttonClickOnceChecker == true)
+                {
+                    MessageBox.Show("Daten wurden bereits geladen!");
+                }
+
+                else
+                {
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        this.chart1.Series["Ausgaben"].Points.AddXY(reader.GetString("Datum"), reader.GetInt32("preis"));
+                    }
+
+                    buttonClickOnceChecker = true;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
