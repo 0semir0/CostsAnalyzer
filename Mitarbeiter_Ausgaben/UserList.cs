@@ -29,7 +29,8 @@ namespace Mitarbeiter_Ausgaben
                 con.Open();
 
                 //MySQL Befehl
-                MySqlDataAdapter adapter = new MySqlDataAdapter("select concat(n_name,'.', v_name) as Benutzer from mitarbeiter;", con);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT CONCAT(n_name,'.', v_name) as Benutzer 
+                                                                  FROM mitarbeiter;", con);
 
                 //Output des Befehls in die Tabelle schreiben
                 DataSet ds = new DataSet();
@@ -50,14 +51,18 @@ namespace Mitarbeiter_Ausgaben
             
             try
             {
-                MySqlDataReader dr = fw.getCMD("select mitarbeiter_id from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
+                MySqlDataReader dr = fw.getCMD($@"SELECT mitarbeiter_id 
+                                                  FROM mitarbeiter 
+                                                  WHERE concat(n_name, '.', v_name) = {cellContent};").ExecuteReader(); //db-verb. herstellen und select ausführen und output auslesen
                 fw.fillTbox(dr, fw.textBox1); //textbox1 mit output des selects füllen
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             try
             {
-                MySqlDataReader dr = fw.getCMD("select concat(n_name, '.', v_name) from mitarbeiter where concat(n_name, '.', v_name) = " + cellContent).ExecuteReader();
+                MySqlDataReader dr = fw.getCMD($@"SELECT CONCAT(n_name, '.', v_name) 
+                                                  FROM mitarbeiter 
+                                                  WHERE CONCAT(n_name, '.', v_name) = {cellContent};").ExecuteReader();
                 fw.fillTbox(dr, login.textBox1);
 
                 login.ShowDialog();

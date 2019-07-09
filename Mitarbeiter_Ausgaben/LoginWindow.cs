@@ -26,7 +26,9 @@ namespace Mitarbeiter_Ausgaben
             box1Content = "'" + textBox1.Text + "'";
             try
             {
-                string realPasswordHash = fw.getCMD("select kennwort from mitarbeiter where concat(n_name, '.', v_name) = " + box1Content).ExecuteScalar().ToString();
+                string realPasswordHash = fw.getCMD($@"SELECT kennwort 
+                                                      FROM mitarbeiter 
+                                                      WHERE concat(n_name, '.', v_name) = {box1Content};").ExecuteScalar().ToString();
 
                 fw.GiveUsername("'" + textBox1.Text + "'");
                 string mitarbeiterID = fw.getmID();
@@ -42,7 +44,6 @@ namespace Mitarbeiter_Ausgaben
                     fw.ShowDialog();
 
                     DialogResult = DialogResult.No; //close loginscreen after closing finalwindow
-
                 }
                 else MessageBox.Show("Passwort inkorrekt.");
                 fw.textBox2.Select(); //Cursor in die TextBox platzieren -> FinalWindow

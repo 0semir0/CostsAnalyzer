@@ -39,7 +39,9 @@ namespace Mitarbeiter_Ausgaben
                 else if (pwNew == pwRepeat)
                 {
                     pwNewHash = "'" + pwNewHash + "'"; //in Anführungszeichen -> mysql Syntax
-                    f1.getCMD("update mitarbeiter set kennwort=" + pwNewHash + "where mitarbeiter_id=" + f1.getmID() + ";").ExecuteNonQuery();
+                    f1.getCMD($@"UPDATE mitarbeiter 
+                                 SET kennwort= {pwNewHash} 
+                                 WHERE mitarbeiter_id= {f1.getmID()};").ExecuteNonQuery();
 
                     MessageBox.Show("Passwort geändert!");
 
