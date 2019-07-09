@@ -49,26 +49,28 @@
             this.chart1.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(12, 12);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.White;
+            series1.MarkerBorderColor = System.Drawing.Color.Gray;
             series1.MarkerColor = System.Drawing.Color.White;
             series1.Name = "Ausgaben";
             series1.YValuesPerPoint = 2;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1405, 555);
+            this.chart1.Size = new System.Drawing.Size(1429, 608);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(691, 573);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.Location = new System.Drawing.Point(0, 585);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(1429, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Daten laden";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,7 +83,6 @@
             this.ClientSize = new System.Drawing.Size(1429, 608);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GraphWindow";
             this.Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

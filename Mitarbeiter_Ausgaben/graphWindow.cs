@@ -24,7 +24,10 @@ namespace Mitarbeiter_Ausgaben
         {
             FinalWindow f1 = new FinalWindow();
 
-            var cmd = f1.getCMD($"select concat(month(datum), '.', year(datum)) as Datum, preis from ausgaben where mitarbeiter_id = {f1.getmID()};");
+            var cmd = f1.getCMD($@"select concat(month(datum), '.', year(datum)) as DatumJM, sum(preis) as MonatsSumme
+                                   from ausgaben 
+                                   where mitarbeiter_id = {f1.getmID()}
+                                   group by DatumJM;");
             MySqlDataReader reader;
 
             try
@@ -32,14 +35,15 @@ namespace Mitarbeiter_Ausgaben
                 //chart config
                 var chart = chart1.ChartAreas[0];
 
-                chart.AxisY.Interval = 0.5;
-                chart.AxisY.Minimum = 0.25;
-                chart.AxisY.Maximum = 15;
-
+                chart.AxisY.Interval = 1;
                 chart.AxisX.Interval = 1;
-                chart.AxisX.Minimum = 1;
 
-                if(buttonClickOnceChecker == true)
+                chart.BackColor = Color.LightSlateGray;
+
+                this.chart1.Series["Ausgaben"].LabelBackColor = Color.White;
+                this.chart1.Series["Ausgaben"].Color = Color.FromArgb(180, Color.Blue);
+
+                if (buttonClickOnceChecker == true)
                 {
                     MessageBox.Show("Daten wurden bereits geladen!");
                 }
@@ -49,12 +53,12 @@ namespace Mitarbeiter_Ausgaben
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        this.chart1.Series["Ausgaben"].Points.AddXY(reader.GetString("Datum"), reader.GetInt32("preis"));
+                        this.chart1.Series["Ausgaben"].IsValueShownAsLabel = true;
+                        this.chart1.Series["Ausgaben"].Points.AddXY(reader.GetString("DatumJM"), reader.GetDouble("MonatsSumme"));
                     }
 
                     buttonClickOnceChecker = true;
                 }
-                
             }
             catch(Exception ex)
             {
