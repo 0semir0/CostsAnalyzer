@@ -25,9 +25,7 @@ namespace Mitarbeiter_Ausgaben
                 gericht = "'" + gericht + "'"; //ready for sql query
                 //neuer Befehl
                 command.CommandText = $"insert into ausgaben(gericht, preis, mitarbeiter_id) values({gericht}, {preis.ToString(CultureInfo.InvariantCulture)}, {mID});";
-
-
-
+                
                 con.Open();
 
                 //Befehl ausführen
