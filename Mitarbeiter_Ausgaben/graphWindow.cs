@@ -40,14 +40,11 @@ namespace Mitarbeiter_Ausgaben
 
                 chart.BackColor = Color.LightSlateGray;
 
-                this.chart1.Series["Ausgaben"].LabelBackColor = Color.White;
+                this.chart1.Series["Ausgaben"].LabelBackColor = Color.LightSlateGray;
                 this.chart1.Series["Ausgaben"].Color = Color.FromArgb(180, Color.Blue);
 
-                if (buttonClickOnceChecker == true)
-                {
-                    MessageBox.Show("Daten wurden bereits geladen!");
-                }
 
+                if (buttonClickOnceChecker == true) MessageBox.Show("Daten wurden bereits geladen!");
                 else
                 {
                     reader = cmd.ExecuteReader();
@@ -59,12 +56,7 @@ namespace Mitarbeiter_Ausgaben
 
                     buttonClickOnceChecker = true;
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+            } catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

@@ -58,17 +58,9 @@ namespace Mitarbeiter_Ausgaben
         public string GetHashString(string inputString)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (byte b in GetHash(inputString))
-            {
-                sb.Append(b.ToString("X2"));
-            }
-
+            foreach (byte b in GetHash(inputString)) sb.Append(b.ToString("X2"));
+            
             return sb.ToString();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

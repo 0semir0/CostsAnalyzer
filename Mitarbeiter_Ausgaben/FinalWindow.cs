@@ -62,10 +62,7 @@ namespace Mitarbeiter_Ausgaben
         //FÜLLT TEXTBOX MIT OUTPUT EINES SELECTS
         public void fillTbox(MySqlDataReader reader, TextBox box2fill) //FILL TEXTBOX FUNCTION
         {
-            if (reader.Read())
-            {
-                box2fill.Text = reader.GetValue(0).ToString(); //fills given textbox with select statement
-            }
+            if (reader.Read()) box2fill.Text = reader.GetValue(0).ToString(); //fills given textbox with select statement
         }
         
         //GIBT MITARBEITER ID AUS DB ZURÜCK
@@ -76,10 +73,7 @@ namespace Mitarbeiter_Ausgaben
         }
 
         //USED ONCE -> LOGINWINDOW
-        public void GiveUsername(string uname)
-        {
-            box5Content = uname;
-        }
+        public void GiveUsername(string uname) => box5Content = uname;
 
         //GIBT PASSWORT AUS DB ZURÜCK, -> HASH
         public string getPw()
