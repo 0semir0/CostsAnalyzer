@@ -38,9 +38,10 @@ namespace Mitarbeiter_Ausgaben
                 chart.AxisY.Interval = 1;
                 chart.AxisX.Interval = 1;
 
-                chart.BackColor = Color.LightSlateGray;
+                chart.BackColor = Color.LightGray;
+                chart1.BackColor = Color.LightGray;
 
-                this.chart1.Series["Ausgaben"].LabelBackColor = Color.LightSlateGray;
+                this.chart1.Series["Ausgaben"].LabelBackColor = Color.LightGray;
                 this.chart1.Series["Ausgaben"].Color = Color.FromArgb(180, Color.Blue);
 
 
