@@ -1,3 +1,3 @@
 # CostsAnalyzer
 
-This one is my first big projects.
+This one is my first big project.
