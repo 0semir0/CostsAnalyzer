@@ -43,8 +43,8 @@ namespace Mitarbeiter_Ausgaben
                 //chart1.BackColor = Color.LightGray;
 
                 
-                this.chart1.Series["Ausgaben"].LabelBackColor = Color.LightGray;
-                this.chart1.Series["Ausgaben"].Color = Color.FromArgb(180, Color.Blue);
+                this.chart1.Series["Outgoings"].LabelBackColor = Color.LightGray;
+                this.chart1.Series["Outgoings"].Color = Color.FromArgb(180, Color.Blue);
 
 
                 if (buttonClickOnceChecker == true) MessageBox.Show("Daten wurden bereits geladen!");
@@ -53,8 +53,8 @@ namespace Mitarbeiter_Ausgaben
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        this.chart1.Series["Ausgaben"].IsValueShownAsLabel = true;
-                        this.chart1.Series["Ausgaben"].Points.AddXY(reader.GetString("DatumJM"), reader.GetDouble("MonatsSumme"));
+                        this.chart1.Series["Outgoings"].IsValueShownAsLabel = true;
+                        this.chart1.Series["Outgoings"].Points.AddXY(reader.GetString("DatumJM"), reader.GetDouble("MonatsSumme"));
                     }
 
                     buttonClickOnceChecker = true;
