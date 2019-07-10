@@ -53,7 +53,7 @@ namespace Mitarbeiter_Ausgaben
                 {
                     fw.getDBmanipulation($@"UPDATE mitarbeiter
                                             SET fehlanmeldungen = fehlanmeldungen + 1
-                                            WHERE mitarbeiter_id = {fw.getmID()}");
+                                            WHERE mitarbeiter_id = {fw.getmID()}");  //if login is no success, errorcntr plus one
 
                     MessageBox.Show("Passwort inkorrekt.");
                 }
