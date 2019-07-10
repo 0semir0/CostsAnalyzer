@@ -49,7 +49,7 @@ namespace Mitarbeiter_Ausgaben
             editPWwindow.ShowDialog();
         }
 
-        public MySqlCommand getCMD(String command) //DB-CONNECTION AND SQL-COMMAND FUNCTION
+        public MySqlCommand getCMD(string command) //DB-CONNECTION AND SQL-COMMAND FUNCTION
         {
             String conString = "datasource=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
             MySqlConnection con = new MySqlConnection(conString);
@@ -57,6 +57,20 @@ namespace Mitarbeiter_Ausgaben
 
             MySqlCommand cmd = new MySqlCommand(command, con);
             return cmd;
+        }
+
+        public void getDBmanipulation(string command) //DB-CONNECTION AND SQL-UPDATE/DELETE FUNCITON
+        {
+            string conString = "Server=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
+
+            MySqlConnection con = new MySqlConnection(conString);
+            MySqlCommand cmd = con.CreateCommand();
+
+            cmd.CommandText = command;
+
+            con.Open();
+
+            cmd.ExecuteNonQuery();
         }
         
         //FÜLLT TEXTBOX MIT OUTPUT EINES SELECTS

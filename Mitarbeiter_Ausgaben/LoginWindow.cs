@@ -38,6 +38,10 @@ namespace Mitarbeiter_Ausgaben
 
                 if (box2InputHash == realPasswordHash)
                 {
+                    fw.getDBmanipulation($@"UPDATE mitarbeiter 
+                                            SET anmeldungen = anmeldungen + 1
+                                            WHERE mitarbeiter_id = {fw.getmID()};");
+
                     fw.textBox1.Text = mitarbeiterID;
                     fw.label4.Text = textBox1.Text; //Text unten links -> FinalWindow
 

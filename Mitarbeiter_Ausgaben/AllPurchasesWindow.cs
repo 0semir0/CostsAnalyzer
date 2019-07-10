@@ -43,6 +43,7 @@ namespace Mitarbeiter_Ausgaben
                                          WHERE mitarbeiter_id = {login.getmID()};").ExecuteScalar().ToString();
 
             textBox1.Text += dsCount + " Eintragungen:\r\n\r\n" + allDatasets + "\r\n\r\nSumme der Ausgaben: " + sum;
+            textBox1.Select(0, 0);
         }
     }
 }
