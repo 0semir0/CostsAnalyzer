@@ -40,7 +40,7 @@ namespace Mitarbeiter_Ausgaben
                 {
                     fw.getDBmanipulation($@"UPDATE mitarbeiter 
                                             SET anmeldungen = anmeldungen + 1
-                                            WHERE mitarbeiter_id = {fw.getmID()};");
+                                            WHERE mitarbeiter_id = {fw.getmID()};");  //if login is success, logincntr plus one
 
                     fw.textBox1.Text = mitarbeiterID;
                     fw.label4.Text = textBox1.Text; //Text unten links -> FinalWindow
@@ -49,7 +49,15 @@ namespace Mitarbeiter_Ausgaben
 
                     DialogResult = DialogResult.No; //close loginscreen after closing finalwindow
                 }
-                else MessageBox.Show("Passwort inkorrekt.");
+                else
+                {
+                    fw.getDBmanipulation($@"UPDATE mitarbeiter
+                                            SET fehlanmeldungen = fehlanmeldungen + 1
+                                            WHERE mitarbeiter_id = {fw.getmID()}");
+
+                    MessageBox.Show("Passwort inkorrekt.");
+                }
+                    
                 fw.textBox2.Select(); //Cursor in die TextBox platzieren -> FinalWindow
 
             } catch (Exception ex) { MessageBox.Show(ex.Message); }
