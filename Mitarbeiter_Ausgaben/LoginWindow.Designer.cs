@@ -99,10 +99,8 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(143, 64);
             this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(122, 20);
             this.textBox1.TabIndex = 5;
             // 
