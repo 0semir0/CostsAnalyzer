@@ -43,7 +43,6 @@
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.Color.Gray;
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             this.chart1.BackSecondaryColor = System.Drawing.Color.DodgerBlue;
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
