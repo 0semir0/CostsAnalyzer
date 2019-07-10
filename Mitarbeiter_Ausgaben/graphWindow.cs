@@ -15,11 +15,9 @@ namespace Mitarbeiter_Ausgaben
     public partial class GraphWindow : Form
     {
         private bool buttonClickOnceChecker = false;
-        public GraphWindow()
-        {
-            InitializeComponent();
-        }
 
+        public GraphWindow() => InitializeComponent();
+        
         private void button1_Click(object sender, EventArgs e)
         {
             FinalWindow f1 = new FinalWindow();
