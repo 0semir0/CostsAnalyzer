@@ -27,8 +27,8 @@ namespace Mitarbeiter_Ausgaben
             try
             {
                 string realPasswordHash = fw.getCMD($@"SELECT kennwort 
-                                                      FROM mitarbeiter 
-                                                      WHERE concat(n_name, '.', v_name) = {box1Content};").ExecuteScalar().ToString();
+                                                       FROM mitarbeiter 
+                                                       WHERE concat(n_name, '.', v_name) = {box1Content};").ExecuteScalar().ToString();
 
                 fw.GiveUsername("'" + textBox1.Text + "'");
                 string mitarbeiterID = fw.getmID();
