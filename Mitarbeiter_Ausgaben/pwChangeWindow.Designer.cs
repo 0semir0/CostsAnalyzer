@@ -51,7 +51,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Speichern";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -60,27 +60,27 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(61, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Altes Kennwort";
+            this.label1.Text = "Old password";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(53, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Neues Kennwort";
+            this.label2.Text = "New password";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 77);
+            this.label3.Location = new System.Drawing.Point(34, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Kennwort wiederholen";
+            this.label3.Text = "Reapeat password";
             // 
             // textBox1
             // 
@@ -141,7 +141,7 @@
             this.Name = "PWChangeWindow";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kennwort ändern";
+            this.Text = "Reset password";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

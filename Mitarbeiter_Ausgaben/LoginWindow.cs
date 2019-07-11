@@ -62,5 +62,13 @@ namespace Mitarbeiter_Ausgaben
 
             } catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+
+        //SHOW SIGN UP WINDOW
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SignUpWindow SignUp = new SignUpWindow();
+            SignUp.ShowDialog();
+        }
     }
 }

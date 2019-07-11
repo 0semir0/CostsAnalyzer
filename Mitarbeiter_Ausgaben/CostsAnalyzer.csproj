@@ -120,6 +120,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignUpWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUpWindow.Designer.cs">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FinalWindow.resx">
       <DependentUpon>FinalWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +150,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SignUpWindow.resx">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Mitarbeiter_Ausgaben_TemporaryKey.pfx" />
     <None Include="mittagessen_ausgabenDataSet.xsc">
       <DependentUpon>mittagessen_ausgabenDataSet.xsd</DependentUpon>

@@ -58,7 +58,7 @@
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(112, 23);
             this.save_btn.TabIndex = 0;
-            this.save_btn.Text = "Speichern";
+            this.save_btn.Text = "Save";
             this.save_btn.UseVisualStyleBackColor = false;
             this.save_btn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -78,9 +78,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(29, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Artikel";
+            this.label2.Text = "Item";
             // 
             // label3
             // 
@@ -88,9 +88,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(29, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Kosten";
+            this.label3.Text = "Price";
             // 
             // textBox1
             // 
@@ -154,8 +154,8 @@
             this.passwortÄndernToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.bearbeitenToolStripMenuItem.Text = "Edit";
             // 
             // passwortÄndernToolStripMenuItem
             // 
@@ -163,8 +163,8 @@
             this.passwortÄndernToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.passwortÄndernToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.passwortÄndernToolStripMenuItem.Name = "passwortÄndernToolStripMenuItem";
-            this.passwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.passwortÄndernToolStripMenuItem.Text = "Passwort ändern";
+            this.passwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passwortÄndernToolStripMenuItem.Text = "Reset password";
             this.passwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.passwortÄndernToolStripMenuItem_Click);
             // 
             // button2
@@ -177,7 +177,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 23);
             this.button2.TabIndex = 11;
-            this.button2.Text = "Mehr...";
+            this.button2.Text = "More...";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -191,7 +191,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 23);
             this.button3.TabIndex = 12;
-            this.button3.Text = "Bisherige Ausgaben";
+            this.button3.Text = "All purchases";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -228,7 +228,7 @@
             this.Name = "FinalWindow";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ausgaben";
+            this.Text = "Costs Analyzer";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
