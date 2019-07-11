@@ -26,23 +26,23 @@ namespace Mitarbeiter_Ausgaben
             box1Content = "'" + textBox1.Text + "'";
             try
             {
-                string realPasswordHash = fw.getCMD($@"SELECT kennwort 
-                                                       FROM mitarbeiter 
-                                                       WHERE concat(n_name, '.', v_name) = {box1Content};").ExecuteScalar().ToString();
+                string realPasswordHash = fw.getCMD($@"SELECT passwdHash 
+                                                       FROM users 
+                                                       WHERE concat(lastName, '.', firstName) = {box1Content};").ExecuteScalar().ToString();
 
                 fw.GiveUsername("'" + textBox1.Text + "'");
-                string mitarbeiterID = fw.getmID();
+                string userID = fw.getmID();
                 
                 string box2Input = textBox2.Text;
                 string box2InputHash = hasher.GetHashString(box2Input); //Make Hash String out of plaintext pw
 
                 if (box2InputHash == realPasswordHash)
                 {
-                    fw.getDBmanipulation($@"UPDATE mitarbeiter 
-                                            SET anmeldungen = anmeldungen + 1
-                                            WHERE mitarbeiter_id = {fw.getmID()};");  //if login is success, logincntr plus one
+                    fw.getDBmanipulation($@"UPDATE users 
+                                            SET logins = logins + 1
+                                            WHERE user_id = {fw.getmID()};");  //if login is success, logincntr plus one
 
-                    fw.textBox1.Text = mitarbeiterID;
+                    fw.textBox1.Text = userID;
                     fw.label4.Text = textBox1.Text; //Text unten links -> FinalWindow
 
                     fw.ShowDialog();
@@ -51,11 +51,11 @@ namespace Mitarbeiter_Ausgaben
                 }
                 else
                 {
-                    fw.getDBmanipulation($@"UPDATE mitarbeiter
-                                            SET fehlanmeldungen = fehlanmeldungen + 1
-                                            WHERE mitarbeiter_id = {fw.getmID()}");  //if login is no success, errorcntr plus one
+                    fw.getDBmanipulation($@"UPDATE users
+                                            SET failedLogins = failedLogins + 1
+                                            WHERE user_id = {fw.getmID()}");  //if login is no success, errorcntr plus one
 
-                    MessageBox.Show("Passwort inkorrekt.");
+                    MessageBox.Show("Password incorrect.");
                 }
                     
                 fw.textBox2.Select(); //Cursor in die TextBox platzieren -> FinalWindow

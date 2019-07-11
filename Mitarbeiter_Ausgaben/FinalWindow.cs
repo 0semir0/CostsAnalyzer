@@ -27,13 +27,13 @@ namespace Mitarbeiter_Ausgaben
         {
             try
             {
-                int mID = Int32.Parse(textBox1.Text);
-                String gericht = textBox2.Text;
+                int uID = Int32.Parse(textBox1.Text);
+                string item = textBox2.Text;
 
-                decimal preis = Convert.ToDecimal(textBox3.Text.Replace(".", ","));
+                decimal price = Convert.ToDecimal(textBox3.Text.Replace(".", ","));
 
                 DbConnect dc = new DbConnect();
-                dc.dbcon(gericht, preis, mID);
+                dc.dbcon(item, price, uID);
 
                 textBox2.Clear();
                 textBox2.Focus();
@@ -52,7 +52,7 @@ namespace Mitarbeiter_Ausgaben
         //DB-CONNECTION AND SQL-COMMAND FUNCTION
         public MySqlCommand getCMD(string command) 
         {
-            String conString = "datasource=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
+            String conString = "Server=canbolat.eu;Port=3306;Database=d02f011e;Uid=d02f011e;password=ptTA2RtMakMWoQ26;";
             MySqlConnection con = new MySqlConnection(conString);
             con.Open();
 
@@ -63,7 +63,7 @@ namespace Mitarbeiter_Ausgaben
         //DB-CONNECTION AND SQL-UPDATE/DELETE FUNCITON
         public void getDBmanipulation(string command) 
         {
-            string conString = "Server=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
+            string conString = "Server=canbolat.eu;Port=3306;Database=d02f011e;Uid=d02f011e;password=ptTA2RtMakMWoQ26;";
 
             MySqlConnection con = new MySqlConnection(conString);
             MySqlCommand cmd = con.CreateCommand();
@@ -84,9 +84,9 @@ namespace Mitarbeiter_Ausgaben
         //GIBT MITARBEITER ID AUS DB ZURÜCK
         public string getmID()
         {
-            string mID = getCMD($@"SELECT mitarbeiter_id 
-                                   FROM mitarbeiter 
-                                   WHERE CONCAT(n_name, '.', v_name) = {box5Content};").ExecuteScalar().ToString();
+            string mID = getCMD($@"SELECT user_id 
+                                   FROM users
+                                   WHERE CONCAT(lastName, '.', firstName) = {box5Content};").ExecuteScalar().ToString();
             return mID;
         }
 
@@ -96,9 +96,9 @@ namespace Mitarbeiter_Ausgaben
         //GIBT PASSWORT AUS DB ZURÜCK, -> HASH
         public string getPw()
         {
-            string pw = getCMD($@"SELECT kennwort 
-                                  FROM mitarbeiter 
-                                  WHERE CONCAT(n_name, '.', v_name) = {box5Content};").ExecuteScalar().ToString();
+            string pw = getCMD($@"SELECT passwdHash 
+                                  FROM users 
+                                  WHERE CONCAT(lastName, '.', firstName) = {box5Content};").ExecuteScalar().ToString();
             return pw;
         }
 

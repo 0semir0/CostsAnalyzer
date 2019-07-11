@@ -22,9 +22,9 @@ namespace Mitarbeiter_Ausgaben
         {
             FinalWindow f1 = new FinalWindow();
 
-            var cmd = f1.getCMD($@"SELECT CONCAT(month(datum), '.', year(datum)) AS DatumJM, SUM(preis) AS MonatsSumme
-                                   FROM ausgaben 
-                                   WHERE mitarbeiter_id = {f1.getmID()}
+            var cmd = f1.getCMD($@"SELECT CONCAT(month(saveDate), '.', year(saveDate)) AS DatumJM, SUM(price) AS MonatsSumme
+                                   FROM allPurchases 
+                                   WHERE user_id = {f1.getmID()}
                                    GROUP BY DatumJM;");
             MySqlDataReader reader;
 

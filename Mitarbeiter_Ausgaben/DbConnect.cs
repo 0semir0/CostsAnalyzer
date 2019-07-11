@@ -13,19 +13,19 @@ namespace Mitarbeiter_Ausgaben
 {
     class DbConnect
     {
-        public void dbcon(String gericht, decimal preis, int mID)
+        public void dbcon(String item, decimal price, int uID)
         {
             try {
                 //neue DB-Verbindung
-                String conString = "Server=192.168.0.118;Port=3306;Database=mittagessen_ausgaben;Uid=remoteUser0;password=usbw;";
+                String conString = "Server=canbolat.eu;Port=3306;Database=d02f011e;Uid=d02f011e;password=ptTA2RtMakMWoQ26;";
 
                 MySqlConnection con = new MySqlConnection(conString);
                 MySqlCommand command = con.CreateCommand();
 
-                gericht = "'" + gericht + "'"; //ready for sql query
+                item = "'" + item + "'"; //ready for sql query
                 //neuer Befehl
-                command.CommandText = $@"INSERT INTO ausgaben(gericht, preis, mitarbeiter_id) 
-                                         VALUES({gericht}, {preis.ToString(CultureInfo.InvariantCulture)}, {mID});";
+                command.CommandText = $@"INSERT INTO allPurchases(item, price, user_id) 
+                                         VALUES({item}, {price.ToString(CultureInfo.InvariantCulture)}, {uID});";
                 
                 con.Open();
 

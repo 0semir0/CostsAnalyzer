@@ -33,17 +33,17 @@ namespace Mitarbeiter_Ausgaben
             {
                 FinalWindow f1 = new FinalWindow();
 
-                if (pwNew != pwRepeat) MessageBox.Show("Eingaben falsch. \nKorrigieren!");
-                if (pwOldHash != f1.getPw()) MessageBox.Show("Eingaben falsch. \nKorrigieren!");
+                if (pwNew != pwRepeat) MessageBox.Show("Entries not correct. \nRepeat!");
+                if (pwOldHash != f1.getPw()) MessageBox.Show("Entries not correct. \nRepeat!");
 
                 else if (pwNew == pwRepeat)
                 {
                     pwNewHash = "'" + pwNewHash + "'"; //in Anführungszeichen -> mysql Syntax
-                    f1.getCMD($@"UPDATE mitarbeiter 
-                                 SET kennwort= {pwNewHash} 
-                                 WHERE mitarbeiter_id= {f1.getmID()};").ExecuteNonQuery();
+                    f1.getCMD($@"UPDATE users 
+                                 SET passwdHash = {pwNewHash} 
+                                 WHERE user_id= {f1.getmID()};").ExecuteNonQuery();
 
-                    MessageBox.Show("Passwort geändert!");
+                    MessageBox.Show("Password Changed!");
 
                     this.Close(); //close window after successful PW-Change
                 }
