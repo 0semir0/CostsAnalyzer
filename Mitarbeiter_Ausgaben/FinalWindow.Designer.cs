@@ -36,15 +36,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.mitarbeiterTableAdapter1 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
+            //this.mitarbeiterTableAdapter1 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.mitarbeiterTableAdapter2 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
-            this.mitarbeiterTableAdapter3 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
+            //this.mitarbeiterTableAdapter2 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
+            //this.mitarbeiterTableAdapter3 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +125,7 @@
             // 
             // mitarbeiterTableAdapter1
             // 
-            this.mitarbeiterTableAdapter1.ClearBeforeFill = true;
+            //this.mitarbeiterTableAdapter1.ClearBeforeFill = true;
             // 
             // label4
             // 
@@ -197,11 +197,11 @@
             // 
             // mitarbeiterTableAdapter2
             // 
-            this.mitarbeiterTableAdapter2.ClearBeforeFill = true;
-            // 
-            // mitarbeiterTableAdapter3
-            // 
-            this.mitarbeiterTableAdapter3.ClearBeforeFill = true;
+            //this.mitarbeiterTableAdapter2.ClearBeforeFill = true;
+            //// 
+            //// mitarbeiterTableAdapter3
+            //// 
+            //this.mitarbeiterTableAdapter3.ClearBeforeFill = true;
             // 
             // FinalWindow
             // 
@@ -245,15 +245,15 @@
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter1;
+        //private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter1;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwortÄndernToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter2;
-        private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter3;
+        //private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter2;
+        //private mittagessen_ausgabenDataSetTableAdapters.mitarbeiterTableAdapter mitarbeiterTableAdapter3;
     }
 }
 

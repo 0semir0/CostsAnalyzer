@@ -32,7 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphWindow));
-            this.ausgabenTableAdapter1 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.ausgabenTableAdapter();
+            //this.ausgabenTableAdapter1 = new Mitarbeiter_Ausgaben.mittagessen_ausgabenDataSetTableAdapters.ausgabenTableAdapter();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -40,7 +40,7 @@
             // 
             // ausgabenTableAdapter1
             // 
-            this.ausgabenTableAdapter1.ClearBeforeFill = true;
+            //this.ausgabenTableAdapter1.ClearBeforeFill = true;
             // 
             // chart1
             // 
@@ -96,7 +96,7 @@
 
         #endregion
 
-        private mittagessen_ausgabenDataSetTableAdapters.ausgabenTableAdapter ausgabenTableAdapter1;
+        //private mittagessen_ausgabenDataSetTableAdapters.ausgabenTableAdapter ausgabenTableAdapter1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button button1;
     }

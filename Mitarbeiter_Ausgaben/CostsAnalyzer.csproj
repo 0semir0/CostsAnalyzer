@@ -95,6 +95,11 @@
     <Compile Include="LoginWindow.Designer.cs">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="mittagessen_ausgabenDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mittagessen_ausgabenDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PWChangeWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +155,17 @@
       <DependentUpon>SignUpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Mitarbeiter_Ausgaben_TemporaryKey.pfx" />
+    <None Include="mittagessen_ausgabenDataSet.xsc">
+      <DependentUpon>mittagessen_ausgabenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="mittagessen_ausgabenDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>mittagessen_ausgabenDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="mittagessen_ausgabenDataSet.xss">
+      <DependentUpon>mittagessen_ausgabenDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
