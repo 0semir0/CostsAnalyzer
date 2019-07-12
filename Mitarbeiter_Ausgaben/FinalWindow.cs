@@ -16,7 +16,7 @@ namespace Mitarbeiter_Ausgaben
     public partial class FinalWindow : Form
     {
         public static string box5Content;
-        
+         
         public FinalWindow()
         {
             InitializeComponent();
